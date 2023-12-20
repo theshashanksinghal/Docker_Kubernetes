@@ -10,7 +10,7 @@ const client = redis.createClient({
 client.set('visits', 0);
 
 app.get('/', (req, res) => {
-  process.exit(0); // exit(0) sends the exit code as 0 which means "we exited and everything is ok. Any other number than 0 means something went wrong!"
+  process.exit(0);
   client.get('visits', (err, visits) => {
     res.send('Number of visits ' + visits);
     client.set('visits', parseInt(visits) + 1);

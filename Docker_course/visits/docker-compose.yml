@@ -3,6 +3,7 @@ services:
   redis-server: # name of the container which we'll use in node file to connect to redis server instead of using "https://something.com"
     image: 'redis'
   node-app:
+    restart: always
     build: .
     ports:
       - "4001:8081"
